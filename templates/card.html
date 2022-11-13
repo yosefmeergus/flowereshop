@@ -1,0 +1,20 @@
+<div class="card">
+	<img src="{{ flower.image.url }}">
+	<div class="card-content">
+		<h2>{{ flower.title }}</h2>
+		<p>{{ flower.cost }} <i class="fa-solid fa-dollar-sign"></i> </p>
+		<a href="{% url 'add_to_cart' flower.slug %}">add to cart</a>
+		<a href="{% url 'detail' flower.slug %}">read more</a>
+		<a href="{% url 'handle_favorites' flower.slug %}">
+			{% if flower.is_favorite %}
+				remove from favorites
+			{% else %}
+				add to favorites
+			{% endif %}
+		</a>
+		{% if request.user == flower.owner %}
+		<a href="{% url 'delete' flower.slug %}">delete</a>
+		<a href="{% url 'update' flower.slug %}">update</a>
+		{% endif %}
+	</div>
+</div>

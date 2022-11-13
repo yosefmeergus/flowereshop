@@ -1,0 +1,23 @@
+{% load static %}
+	<nav class = "menu">
+		<div class = "container menu-content">
+			<div>
+				<img src = "{% static 'images/flower-pot.png' %}" alt = "flower logo">
+				<a href = "{% url 'shop' %}">shop <i class="fa-solid fa-shop"></i> </a>
+				{% if request.user.is_authenticated %}
+					<a href = "{% url 'profile' %}">profile <i class="fa-solid fa-user"></i> </a>
+					<a href = "{% url 'cart' %}">cart</a>
+					<a href="{% url 'favorites' %}">favorites</a>
+				{% endif %}
+			</div>
+			<div>
+				{% if not request.user.is_authenticated %}
+					<a href = "{% url 'sign_in' %}">Sign in <i class="fa-solid fa-arrow-right-to-bracket"></i> </a>
+					<a href = "{% url 'sign_up' %}">Sign up <i class="fa-solid fa-user-plus"></i> </a>
+				{% else %}
+					<p>Welcome, {{request.user.username}}</p>
+					<a href = "{% url 'sign_out' %}">Sign out</a>
+				{% endif %}
+			</div>
+		</div>
+	</nav>

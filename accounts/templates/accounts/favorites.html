@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block links %}
+	<link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+{% endblock links%}
+{% block title %}
+	Flower Shop-Favorites
+{% endblock title %}
+{% block main %}
+	<div class="container">
+		<h1>Favorites</h1>
+		<div class = profile-card>
+			{% for flower in flowers %}
+				{% include "card.html" %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock main %}

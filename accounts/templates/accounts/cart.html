@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block links %}
+	<link rel = "stylesheet" href = '{% static "accounts/css/style.css" %}'>
+{% endblock links %}
+{% block title %}
+	Flower Shop
+{% endblock title %}
+{% block main %}
+	<div>
+		<div class="container">
+			{% if cart_items|length %}
+				<table class="cart-table">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Title</th>
+							<th>Quantity</th>
+							<th>Cost</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for cart_item in cart_items %}
+							<tr>
+								<td><img src="{{cart_item.flower.image.url}}"></td>
+								<td>{{cart_item.flower.title}}</td>
+								<td><a href="{% url 'decrease' cart_item.id %}">-</a>{{cart_item.quantity}}<a href="{% url 'increase' cart_item.id %}">+</a></td>
+								<td>{{cart_item.price}}$</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				<p class="total">Total price: {{total}}$</p>
+			{% else %}
+				<h1>Your cart is empty</h1>
+			{% endif %}
+		</div>
+	</div>
+{% endblock main %}
+{% comment %}
+2) Сделать favorites, отдельную страницу где будут избранные
+3) Убрать слово add to favorites и вместо не поставить не закрашенное сердце, а когда человек добавляет в favorites сделать сердце закрашенным
+{% endcomment %}

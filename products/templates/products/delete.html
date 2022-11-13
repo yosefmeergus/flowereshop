@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block links %}
+	<link rel = "stylesheet" href = '{% static "products/css/style.css" %}'>
+{% endblock links %}
+{% block title %}
+	Flower Shop
+{% endblock title %}
+{% block main %}
+	<div class = "content">
+		<div class = "container">
+			<h1>are you sure you want to delete {{ flower.title }}</h1>
+			<div class = "links">
+				<a href = "{% url 'delete_confirm' flower.slug %}">confirm</a>
+				<a a href = "{% url 'profile' %}">cancel</a>
+			</div>
+		</div>
+	</div>
+{% endblock main %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block links %}
+	<link rel = "stylesheet" href = '{% static "products/css/style.css" %}'>
+{% endblock links %}
+{% block title %}
+	Flower Shop
+{% endblock title %}
+{% block header %}
+	<header style="background-image: url({% static 'images/bg.jpg' %}) ;" class="header-content">
+		<div class="container">
+			<h1>Flower Shop</h1>
+			<p>Flowers for every taste and choice</p>
+			<p>Buy or sell flowers on Flower Shop</p>
+		</div>
+		<div class="cover">
+		</div>
+	</header> 
+{% endblock header %}
+{% block main %}
+	<div class="main-content"> 
+		<div class="container">
+			<h1 class="h1">Why our shop is better</h1>
+			<p>We offer a comfortable and open</p>
+			<p>cheap mobile store</p>
+			<p>with low costs and fast service</p>
+		</div>
+	</div>
+{% endblock main %}
+
+

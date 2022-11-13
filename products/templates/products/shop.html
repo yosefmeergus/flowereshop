@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block links %}
+	<link rel = "stylesheet" href = '{% static "products/css/style.css" %}'>
+{% endblock links %}
+{% block title %}
+	Flower Shop
+{% endblock title %}
+{% block main %}
+	<div class="content">
+		<div class="container">
+			<h1>Shop</h1>
+			<form method = "GET">
+				<input type="text" name="search" placeholder="type for search" value="{{ search }}">
+				<label>Ascending Price</label>
+				<input type="radio" name="price" value="asc">
+				<label>Descending Price</label>
+				<input type="radio" name="price" value="desc">
+				<button>search</button>
+			</form>
+			{% for flower in flowers %}
+				{% include "card.html" %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock main %}

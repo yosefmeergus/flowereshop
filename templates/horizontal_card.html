@@ -1,0 +1,23 @@
+<h1>{{ flower.title }}</h1>
+<div class="horizontal-card">
+	<img src="{{ flower.image.url }}">
+	<div class="card-info">
+		<ul>
+			<li>
+			<span>Owner:</span>{{ flower.owner }}
+			</li>
+			<li>
+				<span>Description:</span>{{ flower.description }}
+			</li>
+			<li>
+				<span>Cost:</span>{{ flower.cost }}
+			</li>
+			<li>
+				<span>Post date:</span>{{ flower.created }}
+			</li>
+			<li>
+				<span>Last update :</span>{{ flower.updated }}
+			</li>
+		</ul>
+	</div>
+</div>

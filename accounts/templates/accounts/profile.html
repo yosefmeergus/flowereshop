@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block links %}
+	<link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+{% endblock links%}
+{% block title %}
+	Flower Shop-Profile
+{% endblock title %}
+{% block main %}
+	<div class="container">
+		<h1>Profile</h1>
+		<div class = profile-card>
+			<div class = profile-avatar>
+				<img>
+			</div>
+			<div class = profile-info>
+				
+			</div>
+		</div>
+		<form method="POST", enctype = "multipart/form-data">
+			{% csrf_token %}
+			{% for field in form %}
+				{{ field.errors }}
+				{% if field.label == "Image" %}
+					<p class = "form-image">
+					<label>{{ field.label }}</label>
+					{{ field }}
+					<span class = "choose-image">choose image <i class="fa-regular fa-image"></i> </span>
+					</p>
+				{% else %}
+				<p>
+					<label>{{ field.label }}</label>
+					{{ field }}
+				</p>
+				{% endif %}
+			{% endfor %}
+			<button>create</button>
+		</form>
+		<div>
+			<h1>Your flowers</h1>
+			{% for flower in flowers %}
+			{% include "card.html" %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock main %}
